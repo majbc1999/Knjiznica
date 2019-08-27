@@ -56,4 +56,4 @@ def pozeni_knjiznico():
         print('Napačna izbira.')
 
 
-
+pozeni_knjiznico()
