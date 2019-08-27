@@ -55,15 +55,14 @@ def povprecje(seznam):
 # Definiramo razred "Knjižnica".
 
 class Knjiznica:
-    def __init__(self, uporabnik):
-        self.uporabnik = uporabnik
+    def __init__(self):
         self.seznam_knjig = seznam_knjig
 
-    def dodaj_knjigo(self, naslov, avtor, leto_izdaje, opis):
-        seznam_knjig.append(naslov)
-        slovar_avtorjev[naslov] = avtor
-        slovar_letnic[naslov] = leto_izdaje
-        slovar_opisov[naslov] = opis
+    def dodaj_knjigo(self, knjiga):
+        seznam_knjig.append(knjiga.naslov())
+        slovar_avtorjev[knjiga.naslov()] = knjiga.avtor()
+        slovar_letnic[knjiga.naslov()] = knjiga.leto_izdaje()
+        slovar_opisov[knjiga.naslov()] = knjiga.opis()
     
     def izbrisi_knjigo(self, naslov):
         seznam_knjig.remove(naslov)
@@ -89,3 +88,9 @@ class Knjiga:
 
     def dodaj_komentar(self, nov_komentar):
         self.komentarji.append(nov_komentar)
+
+    def izpisi_komentarje(self):
+        return self.komentarji
+    
+    def izpisi_oceno(self):
+        return self.povprecna_ocena
