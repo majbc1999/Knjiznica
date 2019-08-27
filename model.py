@@ -1,20 +1,49 @@
-# Najprej dodamo slovar vseh knjig, o katerih bomo lahko glasovali in komentirali. Ta slovar bomo lahko vnaprej še spreminjali.
+# Najprej dodamo slovarje vseh knjig in seznam le-teh, o katerih bomo lahko glasovali in komentirali. Ta slovar bomo lahko vnaprej še spreminjali.
 
-slovar = {
-    'Harry Potter in kamen modrosti': ('J. K. Rowling', '1997', 'Prva knjiga v zbriki o mladem čarovniku, ki je obnorela svet.'),
-    'Zločin in kazen': ('F. M. Dostojevski', '1866', 'Psihološki roman, ki obravnava predvsem subjektivna razmišljanja o življenju, zlasti pa o upravičenosti zločina.'),
-    'Hobit ali Tja in spet nazaj': ('J.R.R. Tolkien', '1937', 'Fantazijski roman kot predhodnik Gospodarja prstanov.'),
-    'Umor na Orient ekspresu': ('A. Christie', '1934', 'Eno najboljših del kraljice kriminalk, nova dogodivščina Hercula Poirota.'),
-    'Grimmove pravljice': ('J. in W. Grimm', '1812', 'Zbirka najzabavnejših pravljic, ki vas potopi v svet domišljije.'),
-    'Ostržek': ('C.Collodi', '1881', 'Klasika o dogodivščinah lesenega fantka.'),
-    'Da Vincijeva koda': ('D. Brown', '2003', 'Misteriozna zgodovinsko obarvana pustolovska drama, ki ne razočara.'),
+seznam_knjig = [
+    'Harry Potter in kamen modrosti', 
+    'Zločin in kazen', 
+    'Hobit ali Tja in spet nazaj', 
+    'Umor na Orient ekspresu', 
+    'Grimmove pravljice', 
+    'Ostržek',
+    'Da Vincijeva koda'
+]
+
+slovar_avtorjev = {
+    'Harry Potter in kamen modrosti': 'J. K. Rowling',
+    'Zločin in kazen': 'F. M. Dostojevski',
+    'Hobit ali Tja in spet nazaj': 'J.R.R. Tolkien',
+    'Umor na Orient ekspresu': 'A. Christie',
+    'Grimmove pravljice': 'J. in W. Grimm',
+    'Ostržek': 'C.Collodi',
+    'Da Vincijeva koda': 'D. Brown'
+}
+
+slovar_letnic = {
+    'Harry Potter in kamen modrosti': '1997',
+    'Zločin in kazen': '1866', 
+    'Umor na Orient ekspresu': '1934',
+    'Grimmove pravljice': '1812',
+    'Ostržek': '1881',
+    'Da Vincijeva koda': '2003'
+}
+
+slovar_opisov = {
+    'Harry Potter in kamen modrosti': 'Prva knjiga v zbriki o mladem čarovniku, ki je obnorela svet.',
+    'Zločin in kazen': 'Psihološki roman, ki obravnava predvsem subjektivna razmišljanja o življenju, zlasti pa o upravičenosti zločina.',
+    'Hobit ali Tja in spet nazaj': 'Fantazijski roman kot predhodnik Gospodarja prstanov.',
+    'Umor na Orient ekspresu': 'Eno najboljših del kraljice kriminalk, nova dogodivščina Hercula Poirota.',
+    'Grimmove pravljice': 'Zbirka najzabavnejših pravljic, ki vas potopi v svet domišljije.',
+    'Ostržek': 'Klasika o dogodivščinah lesenega fantka.',
+    'Da Vincijeva koda': 'Misteriozna zgodovinsko obarvana pustolovska drama, ki ne razočara.'
 }
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 # Tukaj so pomožne funkcije za lepši izgled programa.
 
 def povprecje(seznam):
-    if len(seznam) = 0:
+    if len(seznam) == 0:
         return 0
     else:
         vsota = 0
@@ -26,15 +55,21 @@ def povprecje(seznam):
 # Definiramo razred "Knjižnica".
 
 class Knjiznica:
-    def __init__(self, uporabnik, slovar):
+    def __init__(self, uporabnik):
         self.uporabnik = uporabnik
-        self.slovar = slovar
+        self.seznam_knjig = seznam_knjig
 
     def dodaj_knjigo(self, naslov, avtor, leto_izdaje, opis):
-        if naslov in self.slovar:
-            return 'Ta knjiga je že v tvoji knjižnici. Poskusi znova!'
-        else:
-            self.slovar[naslov]: (avtor, str(leto_izdaje), opis)
+        seznam_knjig.append(naslov)
+        slovar_avtorjev[naslov] = avtor
+        slovar_letnic[naslov] = leto_izdaje
+        slovar_opisov[naslov] = opis
+    
+    def izbrisi_knjigo(self, naslov):
+        seznam_knjig.remove(naslov)
+        del slovar_avtorjev[naslov]
+        del slovar_letnic[naslov]
+        del slovar_opisov[naslov]
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 # Definiramo razred "Knjiga".
