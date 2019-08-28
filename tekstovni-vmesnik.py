@@ -53,6 +53,7 @@ def dodaj_novo_knjigo(naziv):
     opis = input('opis >')
     naziv = Knjiga(naslov_v_funkciji, avtor, leto_izdaje, opis)
     knjiznica.dodaj_knjigo(naziv)
+    slovar_naziva[naslov_v_funkciji] = naziv
     print('Uspešno ste dodali knjigo!')
 
 def izberi_knjigo():
@@ -124,7 +125,13 @@ def oceni(knjiga):
             knjiga.ocene.append(int(podana_ocena))
             print('Ocena je bila uspešno podana.')
 
-
+def izberi_naziv_za_novo_knjigo():
+    print('Izberite naziv za vašo knjigo. Naziv mora biti drugačen od nazivov ostalih knjig.')
+    nov_naziv = input('>')
+    if nov_naziv in slovar_naziva.values():
+        print('Ta naziv je že uporabljen za neko drugo knjigo. Prosim poskusite znova.')
+    else:
+        return nov_naziv
 
 # To je funkcija, ki bo zagnala vse ostale funkcije.
 def pozeni_knjiznico():
@@ -136,7 +143,7 @@ def pozeni_knjiznico():
         elif seznam_dejanj[-1] == '2':
             oceni(izberi_knjigo_za_oceno())
         elif seznam_dejanj[-1] == '3':
-            pass
+            dodaj_novo_knjigo(izberi_naziv_za_novo_knjigo())     
         elif seznam_dejanj[-1] == '4':
             pass
         else:
