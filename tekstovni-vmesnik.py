@@ -55,7 +55,10 @@ knjiznica.dodaj_knjigo(Da_Vincijeva_koda)
 # -------------------------------------------------------------------------------------------------------------------------------------#
 
 def pozdrav():
-    print('POZDRAVLJENI v vaši knjižnici knjig. Tukaj lahko dodajate že prebrane knjige, ter jih nato ocenjujete in jim napišete komentarje.')
+    print('POZDRAVLJENI v vaši KNJIŽNICI.')
+    print('Sem lahko dodajate knjige, ki ste jih že prebrali, ali pa jih imate še namen.')
+    print('Nato lahko knjige ocenjujete ali jim dodajate komentarje.')
+    print('Zaradi pestrosti je nekaj knjig že v vaši knjižnici, lahko pa jih po želji izbrišete. Srečno!')
 
 def izberi_dejanje():
     print('Napiši številko pred dejanjem, ki ga hočeš izvesti:')
