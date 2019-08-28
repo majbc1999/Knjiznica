@@ -32,8 +32,10 @@ class Knjiga:
         self.leto_izdaje = leto_izdaje
         self.opis = opis
         self.ocene = []
-        self.povprecna_ocena = povprecje(self.ocene)
         self.komentarji = []
+    
+    def vrni_povprecno_oceno(self):
+        return povprecje(self.ocene)
     
     def dodaj_oceno(self, dodana_ocena):
         self.ocene.append(dodana_ocena)
@@ -43,6 +45,3 @@ class Knjiga:
 
     def izpisi_komentarje(self):
         return self.komentarji
-    
-    def izpisi_oceno(self):
-        return self.povprecna_ocena
