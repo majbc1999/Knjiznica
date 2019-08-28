@@ -1,6 +1,3 @@
-# Najprej dodamo slovarje vseh knjig in seznam le-teh, o katerih bomo lahko glasovali in komentirali. Ta slovar bomo lahko vnaprej še spreminjali.
-
-seznam_knjig = []
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 # Tukaj so pomožne funkcije za lepši izgled programa.
 
@@ -18,13 +15,13 @@ def povprecje(seznam):
 
 class Knjiznica:
     def __init__(self):
-        self.seznam_knjig = seznam_knjig
+        self.seznam_knjig = []
 
     def dodaj_knjigo(self, knjiga):
-        seznam_knjig.append(knjiga)
+        self.seznam_knjig.append(knjiga)
     
     def izbrisi_knjigo(self, knjiga):
-        seznam_knjig.remove(knjiga)
+        self.seznam_knjig.remove(knjiga)
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 # Definiramo razred "Knjiga".
 
@@ -49,9 +46,3 @@ class Knjiga:
     
     def izpisi_oceno(self):
         return self.povprecna_ocena
-
-#------------------------------------------------------------------------------------------------------------------------------------------------------------------#
-# V seznam knjig dodamo nekaj knjig za lažji začetek.
-
-Harry_Potter_in_kamen_modrosti = Knjiga('Harry Potter in kamen modrosti', 'J. K. Rowling', '1997', 'Prva knjiga v zbriki o mladem čarovniku, ki je obnorela svet.')
-seznam_knjig.append(Harry_Potter_in_kamen_modrosti)
