@@ -1,8 +1,13 @@
-# Najprej uvozimo vse potrebno v tekstovni vmesnik.
+# Najprej uvozimo vse potrebno v tekstovni vmesnik, ter pripravimo seznama, ki sta potrebna za delovanje programa.
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
 from model import Knjiznica, Knjiga, povprecje
 
 seznam_dejanj = []
+
+
 # Dodamo nekaj knjig, da ne bo knjižnica na začetku dolgočasna.
+# -------------------------------------------------------------------------------------------------------------------------------------#
 
 Harry_Potter_in_kamen_modrosti = Knjiga('Harry Potter in kamen modrosti', 'J. K. Rowling', '1997', 'Prva knjiga v zbriki o mladem čarovniku, ki je obnorela svet.')
 Zlocin_in_kazen = Knjiga('Zločin in kazen', 'F. M. Dostojevski', '1866', 'Psihološki roman, ki obravnava predvsem subjektivna razmišljanja o življenju, zlasti pa o upravičenosti zločina.')
@@ -12,7 +17,12 @@ Grimmove_pravljice = Knjiga('Grimmove pravljice', 'J. in W. Grimm', '1812', 'Zbi
 Ostrzek = Knjiga('Ostržek','C.Collodi', '1881', 'Klasika o dogodivščinah lesenega fantka.')
 Da_Vincijeva_koda = Knjiga('Da Vincijeva koda', 'D. Brown', '2003', 'Misteriozna zgodovinsko obarvana pustolovska drama, ki ne razočara.')
 
+
+
+
 # Slovar naziva bo pomemben, da s pomočjo naslova knjige dobimo naziv le-te.
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
 slovar_naziva = {
     'Harry Potter in kamen modrosti': Harry_Potter_in_kamen_modrosti,
     'Hobit ali Tja in spet nazaj': Hobit,
@@ -23,7 +33,12 @@ slovar_naziva = {
     'Da Vincijeva koda': Da_Vincijeva_koda
 }
 
+
+
+
 # Ustvarimo našo začetno knjižnico.
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
 knjiznica = Knjiznica()
 knjiznica.dodaj_knjigo(Harry_Potter_in_kamen_modrosti)
 knjiznica.dodaj_knjigo(Hobit)
@@ -33,7 +48,12 @@ knjiznica.dodaj_knjigo(Grimmove_pravljice)
 knjiznica.dodaj_knjigo(Ostrzek)
 knjiznica.dodaj_knjigo(Da_Vincijeva_koda)
 
-# Tukaj so vse funkcije, ki jih bomo potrebovali
+
+
+
+# Splošne funkcije, ki jih bomo potrebovali
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
 def pozdrav():
     print('POZDRAVLJENI v vaši knjižnici knjig. Tukaj lahko dodajate že prebrane knjige, ter jih nato ocenjujete in jim napišete komentarje.')
 
@@ -46,15 +66,15 @@ def izberi_dejanje():
     dejanje = input('>')
     seznam_dejanj.append(dejanje)
 
-def dodaj_novo_knjigo(naziv):
-    naslov_v_funkciji = input('naslov >')
-    avtor = input('avtor >')
-    leto_izdaje = input('leto izdaje >')
-    opis = input('opis >')
-    naziv = Knjiga(naslov_v_funkciji, avtor, leto_izdaje, opis)
-    knjiznica.dodaj_knjigo(naziv)
-    slovar_naziva[naslov_v_funkciji] = naziv
-    print('Uspešno ste dodali knjigo!')
+def funkcija_licnosti():
+    print('----------------------------------------------------------------------------------------------------------------------------')
+    print('----------------------------------------------------------------------------------------------------------------------------')
+
+
+
+
+# Funkcije za ogled podatkov o knjigi in dodajanje komentarjev
+# -------------------------------------------------------------------------------------------------------------------------------------#
 
 def izberi_knjigo():
     print('Za ogled opisa knjige, avtorja ter leta izdaje napiši NATANČEN naslov knjige.')
@@ -89,7 +109,7 @@ def odpri_podatke_o_knjigi(knjiga):
         print('AVTOR:  ' + knjiga.avtor)
         print('LETO IZDAJE:  ' + knjiga.leto_izdaje)
         print('OPIS:  ' + knjiga.opis)
-        print('............')
+        print('......................................................................................................')
         print('KOMENTARJI:')
         if len(knjiga.komentarji) == 0:
             print('   >> Tukaj še ni bilo dodanih nobenih komentarjev!?')
@@ -100,7 +120,12 @@ def odpri_podatke_o_knjigi(knjiga):
             besedilo_komentarja(knjiga)
     elif knjiga == None:
         print('Ups, te knjige ni v tvoji knjižnici. Poskusi znova')
-        print('--------------------------------------------------------------------------------------------------------')
+
+
+
+
+# Funkcije, ki pomagajo dodati oceno knjigam.
+# -------------------------------------------------------------------------------------------------------------------------------------#
 
 def izberi_knjigo_za_oceno():
     print('Za dodajanje ocene knjige napiši NATANČEN naslov knjige.')
@@ -109,21 +134,37 @@ def izberi_knjigo_za_oceno():
     izbira = input('>')
     if izbira in slovar_naziva:
         return slovar_naziva[izbira]
-    else: return None
+    else: 
+        return None
 
 def oceni(knjiga):
     if knjiga == None:
         print('Ups, te knjige ni v tvoji knjižnici. Poskusi znova')
-        print('--------------------------------------------------------------------------------------------------------')
     else:
-        print('Podaj oceno za knjigo: {}'.format(knjiga.naslov))
+        print('Podaj oceno od 1 do 5 za knjigo: {}'.format(knjiga.naslov))
         podana_ocena = input('>')
         if int(podana_ocena) < 0 or int(podana_ocena) > 5:
             print('Neveljavna ocena')
-            print('--------------------------------------------------------------------------------------------------------')
+
         else:
             knjiga.ocene.append(int(podana_ocena))
             print('Ocena je bila uspešno podana.')
+
+
+
+
+# Funkcije, ki pomagajo dodati novo knjigo
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
+def dodaj_novo_knjigo(naziv):
+    naslov_v_funkciji = input('naslov >')
+    avtor = input('avtor >')
+    leto_izdaje = input('leto izdaje >')
+    opis = input('opis >')
+    naziv = Knjiga(naslov_v_funkciji, avtor, leto_izdaje, opis)
+    knjiznica.dodaj_knjigo(naziv)
+    slovar_naziva[naslov_v_funkciji] = naziv
+    print('Uspešno ste dodali knjigo!')
 
 def izberi_naziv_za_novo_knjigo():
     print('Izberite naziv za vašo knjigo. Naziv mora biti drugačen od nazivov ostalih knjig.')
@@ -133,22 +174,71 @@ def izberi_naziv_za_novo_knjigo():
     else:
         return nov_naziv
 
+
+
+
+# Funkcije, ki pomagajo izbrisati knjigo
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
+def izberi_izbris():
+    print('To so knjige, ki jih imate v vaši knjižnici:')
+    for knjiga in knjiznica.seznam_knjig:
+        print('  - ' + knjiga.naslov + ' (' + str(knjiga.vrni_povprecno_oceno()) + '/5.0)')
+    print('Napišite NATANČEN naslov tiste knjige, ki jo želite izbrisati:')
+    zeljen_izbris = input('>')
+    if zeljen_izbris in slovar_naziva:
+        return slovar_naziva[zeljen_izbris]
+    else:
+        return None
+
+def izbrisi(knjiga):
+    if knjiga == None:
+        print('Take knjige ni v tvoji knjižnici. Poskusi znova!')
+    else:
+        if ali_ste_prepricani():
+            del slovar_naziva[knjiga.naslov]
+            knjiznica.izbrisi_knjigo(knjiga)
+            print('Knjiga je bila uspešno izbrisana.')
+        else:
+            print('Knjiga ni bila izbrisana')
+
+def ali_ste_prepricani():
+    print('Ali ste prepričani? (Če ste povsem prepričani napišite DA)')
+    prepricanje = input('>')
+    if prepricanje == 'DA':
+        return True
+    else:
+        return False
+
+
+
 # To je funkcija, ki bo zagnala vse ostale funkcije.
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
 def pozeni_knjiznico():
     while True:
         pozdrav()
         izberi_dejanje()
         if seznam_dejanj[-1] == '1':
             odpri_podatke_o_knjigi(izberi_knjigo())
+            funkcija_licnosti()
         elif seznam_dejanj[-1] == '2':
             oceni(izberi_knjigo_za_oceno())
+            funkcija_licnosti()
         elif seznam_dejanj[-1] == '3':
-            dodaj_novo_knjigo(izberi_naziv_za_novo_knjigo())     
+            dodaj_novo_knjigo(izberi_naziv_za_novo_knjigo())
+            funkcija_licnosti()
         elif seznam_dejanj[-1] == '4':
-            pass
+            izbrisi(izberi_izbris())
+            funkcija_licnosti()
         else:
             print('Napačna izbira.')
-            print('--------------------------------------------------------------------------------------------------------')
+            funkcija_licnosti()
+
+
+
 
 # Knjižnico še poženemo
+# -------------------------------------------------------------------------------------------------------------------------------------#
+
 pozeni_knjiznico()
