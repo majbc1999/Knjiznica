@@ -13,7 +13,7 @@
 
         <li>
             <form action="/oceni_knjigo/" method="post">
-                <button type="submit">Oceni svojo knjigo.</button>
+                <button type="submit">Oceni svojo knjigo ali komentiraj.</button>
             </form>
         </li>
 

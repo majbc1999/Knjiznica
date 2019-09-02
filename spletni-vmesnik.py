@@ -17,9 +17,16 @@ def vasa_knjiznica():
 def vstopi_v_bazo():
     return bottle.template("seznam_knjig.tpl")
 
-@bottle.get("/vstopi_v_bazo/<naslov>/")
-def podatki_o_knjigi(naslov):
-    return bottle.get("/podatki.tpl/", naslov = naslov)
+@bottle.get("/vstopi_v_bazo/<knjiga>/")
+def podatki_o_knjigi(knjiga):
+    from zbirka_knjig import slovar_naziva
+    naslov = knjiga
+    avtor = slovar_naziva[knjiga].avtor
+    leto = slovar_naziva[knjiga].leto_izdaje
+    opis = slovar_naziva[knjiga].opis
+    ocena = slovar_naziva[knjiga].vrni_povprecno_oceno()
+    komentarji = slovar_naziva[knjiga].izpisi_komentarje()
+    return bottle.template("podatki_o_knjigi.tpl", naslov=naslov, avtor=avtor, leto=leto, opis=opis, ocena=ocena, komentarji=komentarji)
 
 
 # Program še poženemo.

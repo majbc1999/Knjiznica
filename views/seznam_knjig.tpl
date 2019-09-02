@@ -9,8 +9,8 @@
 <ol>
     %   for knjiga in slovar_naziva :
             <li>
-                {{knjiga}}
-                <form action="/{{knjiga}}/" method="get">
+                {{knjiga}} ({{slovar_naziva[knjiga].vrni_povprecno_oceno()}}/5)
+                <form action="/vstopi_v_bazo/{{knjiga}}/" method="get">
                     <button type="submit">></button>
                 </form>
             </li>
