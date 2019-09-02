@@ -12,13 +12,13 @@
         </li>
 
         <li>
-            <form action="/oceni_knjigo/" method="post">
+            <form action="/oceni_knjigo/" method="get">
                 <button type="submit">Oceni svojo knjigo ali komentiraj.</button>
             </form>
         </li>
 
         <li>
-            <form action="/dodaj_novo_knjigo/" method="post">
+            <form action="/obrazec_za_knjigo/" method="post">
                 <button type="submit">Dodaj novo knjigo.</button>
             </form>
         </li>

@@ -1,4 +1,4 @@
-%rebase("base.tpl", title="vaša knjiznica")
+%rebase("base.tpl", title="podatki o knjigi")
 <ul>
     <li>naslov:       <b>{{naslov}}</b></li>
     <li>avtor:        <i>{{avtor}}</i></li>

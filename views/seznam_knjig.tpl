@@ -1,15 +1,15 @@
-%rebase("base.tpl", title="vaša knjiznica")
+%rebase("base.tpl", title="seznam knjig")
 %from model import Knjiznica, Knjiga, povprecje
-%from zbirka_knjig import slovar_naziva, knjiznica
 
-<h1>SEZNAM VAŠIH KNJIG<h2>
+
+<h1>SEZNAM VAŠIH KNJIG</h1>
 
 <h4>Kliknite na gumb zraven knjige, ki si jo želite ogledati!</h4>
 
 <ol>
-    %   for knjiga in slovar_naziva :
+    %   for knjiga in slovar:
             <li>
-                {{knjiga}} ({{slovar_naziva[knjiga].vrni_povprecno_oceno()}}/5)
+                {{knjiga}} ({{slovar[knjiga].vrni_povprecno_oceno()}}/5.0)
                 <form action="/vstopi_v_bazo/{{knjiga}}/" method="get">
                     <button type="submit">></button>
                 </form>
