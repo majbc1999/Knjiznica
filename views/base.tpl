@@ -5,7 +5,7 @@
     <title>{{title}}</title>
 </head>
 
-<body>
+<body style="background-color:AntiqueWhite;">
     <div class="container">
         {{!base}}
     </div>
