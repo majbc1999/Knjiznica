@@ -45,3 +45,4 @@ class Knjiga:
 
     def izpisi_komentarje(self):
         return self.komentarji
+
