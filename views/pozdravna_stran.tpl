@@ -4,12 +4,17 @@
 
     <h4>Pozdravljeni v vaši knjižnici!</h4>
 
-        <p>Knjižnica je tu za vas, da vanjo lahko dodajate knjige, ki ste jih že prebrali, ali pa jih imate namen prebrati.</p>
-        <p>Nato lahko knjige iz vaše knjižnice ocenite in jim dodajate komentarje.</p>
-        <p>Če vam knjige iz vaše knjižnice niso všeč jih lahko tudi izbrišete.</p>
-        <p>Zaradi boljše pestrosti smo nekaj znanih knjig že dodali v vašo knjižnico.</p>
+    <i>
+    Knjižnica je program, v katerega lahko dodajate knjige, ki ste jih že prebrali, ali pa jih imate namen prebrati.<br>
+    Nato lahko knjige ocenjujete in jim dodajate komentarje.<br>
+    Če vam knjige iz vaše knjižnice niso všeč, jih lahko tudi izbrišete.<br>
+    Zaradi boljše pestrosti smo nekaj znanih knjig že dodali v vašo knjižnico.<br>
+    Želim vam prijetno uporabniško izkušnjo. ;) <br>
+    </i>
 
+    <p>
     <form action="/vasa_knjiznica/" method="get">
         <button type="submit">Pojdi v knjižnico!</button>
     </form>
+    </p>
 

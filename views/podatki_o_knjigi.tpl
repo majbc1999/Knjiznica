@@ -1,4 +1,11 @@
 %rebase("base.tpl", title="podatki o knjigi")
+
+<form action="/vstopi_v_bazo/" method="get">
+    <button type="submit"><</button>
+</form>
+
+<h1> PODATKI O KNJIGI </h1>
+
 <ul>
     <li>naslov:       <b>{{naslov}}</b></li>
     <li>avtor:        <i>{{avtor}}</i></li>

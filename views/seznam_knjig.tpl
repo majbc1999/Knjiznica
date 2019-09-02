@@ -1,6 +1,10 @@
 %rebase("base.tpl", title="seznam knjig")
 %from model import Knjiznica, Knjiga, povprecje
 
+<form action="/vasa_knjiznica/" method="get">
+    <button type="submit"><</button>
+</form>
+
 
 <h1>SEZNAM VAŠIH KNJIG</h1>
 

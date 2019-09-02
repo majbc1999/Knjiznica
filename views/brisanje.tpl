@@ -1,5 +1,9 @@
 %rebase("base.tpl", title="brisanje")
 
+<form action="/vasa_knjiznica/" method="get">
+    <button type="submit"><</button>
+</form>
+
 <h1> IZBRIŠI KNJIGO IZ KNJIŽNICE </h1>
 
 <h4>Kliknite na gumb zraven knjige, ki jo želite izbrisati!</h4>

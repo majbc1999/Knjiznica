@@ -1,6 +1,10 @@
 %rebase("base.tpl", title="oceni knjigo")
 %from model import Knjiznica, Knjiga, povprecje
 
+<form action="/vasa_knjiznica/" method="get">
+    <button type="submit"><</button>
+</form>
+
 <h1>SEZNAM VAŠIH KNJIG</h1>
 
 <h4>Kliknite na oceno zraven knjige, ali v okno pod njo vpišite željen komentar, ter pritisnite "enter".</h4>

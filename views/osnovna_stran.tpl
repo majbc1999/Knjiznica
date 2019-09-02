@@ -6,26 +6,30 @@
 <p>
     <ul>
         <li>
+            Vstopi v svojo bazo knjig in raziskuj.
             <form action="/vstopi_v_bazo/" method="get">
-                <button type="submit">Vstopi v svojo bazo knjig in raziskuj.</button>
+                <button type="submit">></button>
             </form>
         </li>
 
         <li>
+            Oceni svojo knjigo ali komentiraj.
             <form action="/oceni_knjigo/" method="get">
-                <button type="submit">Oceni svojo knjigo ali komentiraj.</button>
+                <button type="submit">></button>
             </form>
         </li>
 
         <li>
+            Dodaj novo knjigo.
             <form action="/obrazec_za_knjigo/" method="post">
-                <button type="submit">Dodaj novo knjigo.</button>
+                <button type="submit">></button>
             </form>
         </li>
 
         <li>
+            Izbriši svojo obstoječo knjigo.
             <form action="/izbrisi_knjigo/" method="post">
-                <button type="submit">Izbriši svojo obstoječo knjigo.</button>
+                <button type="submit">></button>
             </form>
         </li>
     </ul>

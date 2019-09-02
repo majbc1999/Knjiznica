@@ -1,5 +1,9 @@
 %rebase("base.tpl", title="obrazec")
 
+<form action="/vasa_knjiznica/" method="get">
+    <button type="submit"><</button>
+</form>
+
 <h1> DODAJANJE NOVE KNJIGE </h1>
 
 <h4> V spodnji obrazec vpiši podatke o novi knjigi in pritisni gumb "dodaj novo knjigo v knjižnico!" </h4>
