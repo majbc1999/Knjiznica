@@ -13,7 +13,7 @@
     <li>opis:         <i>{{opis}}</i></li>
     <li>..............</li>
     <li>
-        vaša ocena:   <i>{{ocena}}/5</i>
+        vaša ocena:   <i>{{ocena}}/5.0</i>
     </li>
     <li>
         vaši komentarji:
